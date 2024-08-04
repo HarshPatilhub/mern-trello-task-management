@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy: {
-      '/api/v1' : 'https://mern-trello-task-management.onrender.com',
+      '/api/v1' : 'https://mern-trello-task-management-frontend.onrender.com',
     }
   },
   plugins: [react()],
