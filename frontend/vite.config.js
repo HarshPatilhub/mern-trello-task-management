@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/api/v1' : {
-        target: 'https://task-manage-backend-one.vercel.app',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false,
       }
