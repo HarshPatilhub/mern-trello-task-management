@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('/users/login', { email, password });
+            const { data } = await axios.post('/api/v1/users/login', { email, password });
             console.log(data);
             if (data?.success === true) {
                 setuser({
