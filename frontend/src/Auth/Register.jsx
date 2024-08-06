@@ -20,7 +20,7 @@ const Register = () => {
             console.log(data);
             if (data?.success === true) {
                 navigate('/login');
-                toast.success("User Registered Successfully");
+                alert("User Register successfully")
             }
         } catch (error) {
             console.log(error);
