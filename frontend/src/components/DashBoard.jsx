@@ -229,28 +229,25 @@ const DashBoard = () => {
     return (
         <div className="min-h-screen flex flex-col bg-cover bg-center font-customfont" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/realistic-luxury-background_23-2149354608.jpg')" }}>
             <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-1/6 bg-gray-800 text-white p-1 md:relative md:top-0">
-                    <h4 className="text-2xl font-bold mb-4 px-10">Hi! {user?.user?.name}</h4>
-                    <div className="my-4">
-                        <i className="fa-solid fa-bell mx-2"></i>
-                        <i className="fa-solid fa-sun mx-2"></i>
-                        <i className="fa-solid fa-forward mx-2"></i>
+                <div className="w-full md:w-1/6 bg-gray-800 text-white p-1 md:relative md:top-0flex md:flex-col flex-col items-center md:items-start">
+                    <h4 className="text-2xl font-bold mb-4 px-10">{user?.user?.name} DashBoard</h4>
+                    <div className="my-4 flex items-center">
                         {user?.token ?
-                            <button type="button" onClick={handleLogout} className="mt-2 bg-violet-800 px-4 py-2 rounded-md">Logout</button> :
-                            <button type="button" onClick={handleLogin} className="mt-2 bg-violet-800 px-4 py-2 rounded-md">Login</button>
+                            <button type="button" onClick={handleLogout} className="mt-2 mx-auto bg-violet-800 px-4 py-2 rounded-md">Logout</button> :
+                            <button type="button" onClick={handleLogin} className="mt-2 mx-auto bg-violet-800 px-4 py-2 rounded-md">Login</button>
                         }
                     </div>
                     <ul className="list-none mb-2">
-                        <li className="mb-2"><i className="fa-solid fa-house mr-2"></i><a href="#" className="text-white no-underline">Home</a></li>
-                        <li className="mb-2"><i className="fa-solid fa-clapperboard mr-2"></i><a href="#" className="text-white no-underline">Board</a></li>
-                        <li className="mb-2"><i className="fa-solid fa-gear mr-2"></i><a href="#" className="text-white no-underline">Setting</a></li>
-                        <li className="mb-2"><i className="fa-solid fa-user-plus mr-2"></i><a href="#" className="text-white no-underline">Team</a></li>
-                        <li className="mb-2"><i className="fa-regular fa-chart-bar mr-2"></i><a href="#" className="text-white no-underline">Analytics</a></li>
+                        <li className="mb-2 flex justify-center md:justify-start"><i className="fa-solid fa-house mr-2"></i><a href="#" className="text-white no-underline">Home</a></li>
+                        <li className="mb-2 flex justify-center md:justify-start"><i className="fa-solid fa-clapperboard mr-2"></i><a href="#" className="text-white no-underline">Board</a></li>
+                        <li className="mb-2 flex justify-center md:justify-start"><i className="fa-solid fa-gear mr-2"></i><a href="#" className="text-white no-underline">Setting</a></li>
+                        <li className="mb-2 flex justify-center md:justify-start"><i className="fa-solid fa-user-plus mr-2"></i><a href="#" className="text-white no-underline">Team</a></li>
+                        <li className="mb-2 flex justify-center md:justify-start"><i className="fa-regular fa-chart-bar mr-2"></i><a href="#" className="text-white no-underline">Analytics</a></li>
                     </ul>
-                    <button onClick={handleShow} className="bg-violet-800 px-4 py-2 rounded-md">Create New Task</button>
+                    <button onClick={handleShow} className="bg-violet-800 px-4 py-2 rounded-md mt-2 md:mt-auto flex items-center justify-center mx-auto">Create New Task</button>
                 </div>
                 <div className="flex-1 p-3 overflow-y-auto">
-                    <h1 className="text-4xl mb-2 text-white">Welcome, {user?.user?.name}! To Your Dashboard</h1>
+                    <h1 className="text-4xl mb-4 text-white">Welcome, {user?.user?.name}</h1>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
                         <div className="bg-zinc-100 p-2 rounded-lg shadow-md flex items-center">
                             <img src="https://5.imimg.com/data5/RF/WB/MY-16453035/task-management-system-500x500.png" alt="Task Management" className="w-20 h-20 mr-4" />

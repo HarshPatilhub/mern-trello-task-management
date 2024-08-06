@@ -19,7 +19,7 @@ const Register = () => {
             });
             console.log(data);
             if (data?.success === true) {
-                alert("User Register successfully")
+                toast.success("User Register successfully")
                 navigate('/login');
             }
         } catch (error) {
