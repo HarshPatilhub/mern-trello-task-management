@@ -22,8 +22,8 @@ export const registerController = async (req,res)=>{
                 message: "User Already Existed"
             })
         }
-        const hasheedpassword = await hashPassword(password)
-        const user =  await new UserModel({email,password: hasheedpassword,name}).save()
+        const { salt, hash: hashedPassword } = await hashPassword(password);
+        const user =  await new UserModel({email,password: hashedPassword,salt,name}).save()
          return res.status(200).send({
             success: true,
             message: "User Register Successfully",
@@ -56,7 +56,7 @@ export const loginController = async (req,res)=>{
             })
         }
 
-        const match = await comparePassword(password, user.password)
+        const match = await comparePassword(password,user.salt, user.password)
         //check for the password
         if(!match){
             return res.status(404).send("Invalid Password")
