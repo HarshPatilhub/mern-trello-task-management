@@ -6,7 +6,12 @@ const app = express();
 // import { fileURLToPath } from 'url';
 
 
-app.use(cors({origin: process.env.CORS_ORIGIN, Credential: true}))
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+     methods: ['GET','POST',"PUT","DELETE"],
+     allowedHeaders: ['Content-Type','Authorization']
+
+    }))
 app.use(express.json())
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(cookieParser())

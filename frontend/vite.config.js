@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/api/v1' : {
-        target: 'https://mern-trello-task-management.onrender.com',
+        target: 'https://mern-trello-task-management-1.onrender.com',
         changeOrigin: true,
         secure: false,
       }
