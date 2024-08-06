@@ -25,7 +25,7 @@ const DashBoard = () => {
     useEffect(() =>  {
         const fetchTasks = async () => {
             try {
-                const res = await axios.get('/api/v1/users/get-task',{
+                const res = await axios.get('https://mern-trello-task-management-backend.onrender.com/api/v1/users/get-task',{
                     headers: {
                         Authorization: `Bearer ${user?.token}`
                     }
@@ -69,7 +69,7 @@ const DashBoard = () => {
 
         const fetchStatusOption = async () => {
             try {
-                const { data } = await axios.get("/api/v1/users/status-options");
+                const { data } = await axios.get("https://mern-trello-task-management-backend.onrender.com/api/v1/users/status-options");
                 if (data.success === true && Array.isArray(data.statusOption)) {
                     setstatusopt(data.statusOption);
                 }
@@ -80,7 +80,7 @@ const DashBoard = () => {
 
         const fetchPriorityOptions = async () => {
             try {
-                const { data } = await axios.get("/api/v1/users/priority-options");
+                const { data } = await axios.get("https://mern-trello-task-management-backend.onrender.com/api/v1/users/priority-options");
                 if (data?.success === true && Array.isArray(data.priorityoption)) {
                     setPriorityOpt(data.priorityoption);
                 }
@@ -118,7 +118,7 @@ const DashBoard = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('/api/v1/users/create-task', task,{
+            const { data } = await axios.post('https://mern-trello-task-management-backend.onrender.com/api/v1/users/create-task', task,{
                 headers: {
                     Authorization: `Bearer ${user?.token}`
                 }
@@ -141,7 +141,7 @@ const DashBoard = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete(`/api/v1/users/delete-task/${id}`,{
+            const response = await axios.delete(`https://mern-trello-task-management-backend.onrender.com/api/v1/users/delete-task/${id}`,{
                 headers: {
                     Authorization: `Bearer ${user?.token}`
                 }
@@ -171,7 +171,7 @@ const DashBoard = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`/api/v1/users/update-task/${currentId}`, task);
+            const response = await axios.put(`https://mern-trello-task-management-backend.onrender.com/api/v1/users/update-task/${currentId}`, task);
             const { data } = response;
             if (data?.success === true) {
                 settask(tasks.map((t) => t._id === currentId ? data.task : t));
