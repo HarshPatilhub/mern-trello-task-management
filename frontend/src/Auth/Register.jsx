@@ -17,7 +17,6 @@ const Register = () => {
                 email,
                 password,
             });
-            console.log(data);
             if (data?.success === true) {
                 toast.success("User Register successfully")
                 navigate('/login');

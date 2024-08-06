@@ -30,10 +30,6 @@ const DashBoard = () => {
                         Authorization: `Bearer ${user?.token}`
                     }
                 });
-
-                console.log('Token', user?.token);
-                
-        
                 if (res?.data?.success === true && Array.isArray(res?.data?.tasks)) {
                     settask(res.data.tasks);
                 } else {
@@ -47,10 +43,9 @@ const DashBoard = () => {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    console.error("Server responded with an error:", error.response.data);
+                    console.error("Server error:", error.response.data);
                     console.log(error);
                     
-        
                     // Display specific error message if available
                     toast.error(error.response.data?.message || "Unknown server error");
                 } else if (error.request) {
@@ -149,14 +144,12 @@ const DashBoard = () => {
             const { data } = response;
             if (data?.success === true) {
                 settask(tasks.filter((t) => t._id !== id));
-                toast.success("Task Deleted Successfully | Please Refresh The Page");
+                toast.success("Task Deleted Successfully");
             } else {
-                console.error("Error deleting task:", data.message);
-                toast.error("Error deleting task");
+                toast.error("Error deleting task || please Refresh The Page");
             }
         } catch (error) {
-            console.error("Error in handleDelete:", );
-            toast.error("Error while deleteing");
+            toast.error("Error deleting task || please Refresh The Page");
         }
     };
     
@@ -175,15 +168,15 @@ const DashBoard = () => {
             const { data } = response;
             if (data?.success === true) {
                 settask(tasks.map((t) => t._id === currentId ? data.task : t));
-                toast.success("Task updated Successfully || Refresh Refresh The Page");
+                toast.success("Task updated Successfully");
                 handleClose();
             } else {
                 console.error("Error updating task:", data.message);
-                toast.error("Error updating task");
+                toast.error("Error updating task || Refresh The Page");
             }
         } catch (error) {
             console.error("Error in handleUpdate:", error.response?.data || error.message || error);
-            toast.error("Error updating task");
+            toast.error("Error updating task || Refresh The Page");
         }
     };
     

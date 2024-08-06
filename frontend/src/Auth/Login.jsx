@@ -15,7 +15,6 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await axios.post('https://mern-trello-task-management-backend.onrender.com/api/v1/users/login', { email, password });
-            console.log(data);
             if (data?.success === true) {
                 setuser({
                     ...user,
