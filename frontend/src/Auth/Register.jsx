@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('https://mern-trello-task-management-frontend.onrender.com/api/v1/users/register', {
+            const { data } = await axios.post('https://mern-trello-task-management-backend.onrender.com/api/v1/users/register', {
                 name,
                 email,
                 password,
